@@ -1,0 +1,10 @@
+{
+  "name": "confirm",
+  "description": "Write post-purchase confirmation / welcome emails for long-form financial direct-response promotions. Long-form (~1,500–2,500 words), signed from the editor in first person, delivered as a formatted .docx on the user's Desktop.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Joe Schriefer"
+  },
+  "homepage": "https://github.com/jschriefer79/confirm",
+  "license": "MIT"
+}
