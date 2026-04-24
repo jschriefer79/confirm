@@ -30,14 +30,14 @@ Every confirmation letter must be grounded in the source promo and the editor's 
 
 Before writing the editor-credibility section, source facts in this order. **Never invent credentials.**
 
-**Tier 1 — Credibility Wiki (preferred, optional).** If the environment variable `CONFIRM_WIKI_DIR` is set AND the path exists, check that folder for a credibility wiki matching the editor's name (e.g., `Ian King - Credibility Wiki.docx`).
+**Tier 1 — Credibility Wiki (preferred).** Check `~/Dropbox/AIVault/Guru Wikis/` for a credibility wiki matching the editor's name (e.g., `Ian King - Credibility Wiki.docx`). This folder is shared via the Agora AIVault Dropbox; users with access will have it syncing to their Mac automatically.
 
 - **Read TOP-LEVEL `.docx` files only.**
 - **Skip any `[Lastname] Bio Claims` subfolders** — those are raw claims, not vetted summaries.
 - Pull from the EXECUTIVE SUMMARY, career history, track-record, and media sections.
 - Respect any "legally sensitive" / "cite with care" flags in the wiki (e.g., include required disclosures, or skip the claim).
 
-If `CONFIRM_WIKI_DIR` is unset or no matching wiki exists, silently fall through to Tier 2 — do not block, do not prompt.
+If the folder doesn't exist on this machine OR no matching wiki is found, silently fall through to Tier 2 — do not block, do not prompt. (Users without Agora AIVault access simply lose this tier; the skill keeps working.)
 
 **Tier 2 — The submitted promo.** If no wiki exists for this editor, harvest credibility from the sales letter itself. DR promos almost always contain a "Why Trust Me?" / editor-bio section — pull past firms, degrees, dollar figures under management, media appearances, and specific track-record claims directly from it. Whatever the promo claims, the confirmation can restate (those claims have already cleared legal).
 
@@ -169,18 +169,15 @@ Then close with:
    - Bonus links (repeat, near bottom)
    - Sign-off + signature block
 5. **Target 1,500–2,500 words.** Under 1,500 feels thin. Over 2,500 loses them.
-6. **Save the final letter as a `.docx` on the user's Desktop.** Do NOT dump the full letter into chat. Use the `python-docx` library (install with `pip install python-docx` if the user doesn't have it) to build a Word file and save it to the output directory. Output directory resolution:
-   - If the environment variable `CONFIRM_OUTPUT_DIR` is set, save there.
-   - Otherwise save to `~/Desktop` (expand the tilde).
-   File name: `[Promo Short Name] — Confirm Letter.docx` (e.g., `The Quickening — Confirm Letter.docx`). After saving, tell the user the file is saved and offer a short summary (word count, which editor signs, any placeholders they need to fill). If they ask to see it in chat, then paste it.
+6. **Save the final letter as a `.docx` on the user's Desktop (`~/Desktop/`).** Do NOT dump the full letter into chat. Use the `python-docx` library (install with `pip install python-docx` if the user doesn't have it) to build a Word file. File name: `[Promo Short Name] — Confirm Letter.docx` (e.g., `The Quickening — Confirm Letter.docx`). After saving, tell the user the file is saved and offer a short summary (word count, which editor signs, any placeholders they need to fill). If they ask to see it in chat, then paste it.
 7. **Formatting in the .docx:** Calibri 11pt body. Section subheads bold, ~14pt. Italicize publication names and book/report titles wherever they appear. Bold the `» Download "[Title]" — [INSERT LINK] «` lines. Track-record wins as a bulleted list with the ticker/gain bolded. Signature block on its own lines at the bottom.
 8. **Placeholder anything you can't confirm:** `[READER NAME HERE]`, `[INSERT LINK]`, `[BILLING DESCRIPTOR]`, `[EMAIL@pub.com]`. Never invent.
 
 ---
 
-## Reference examples (optional)
+## Reference examples
 
-If the environment variable `CONFIRM_EXAMPLES_DIR` is set AND the path exists, read one or two `.docx` files from that folder before drafting — they're your voice-calibration models. If the variable is unset, skip this step and rely on the method above.
+If `~/Dropbox/AIVault/Confirm Letters/` exists on this machine, read one or two `.docx` files from that folder before drafting — they're your voice-calibration models. If the folder isn't there, skip this step and rely on the method above.
 
 ---
 

@@ -31,39 +31,19 @@ Paste the long-form DR promo into the chat — either as a `.docx` file path, ra
 
 Claude will:
 1. Extract the Big Idea, editor name, publication, bonus reports, and track-record claims from the promo.
-2. Pull editor credibility from your Credibility Wiki folder (if configured), then the promo, then web search.
+2. Pull editor credibility from the Guru Wiki Dropbox folder (if you have it — see below), then the promo, then web search.
 3. Draft the letter following the 5-job structure.
 4. Save it as `[Promo Short Name] — Confirm Letter.docx` on your Desktop.
 
-## Configuration (optional environment variables)
+## Optional Power-Up: The Guru Wiki folder
 
-The skill works out of the box, but three env vars unlock its full capability:
+The skill gets noticeably sharper when it has access to the shared Agora **AIVault** Dropbox folder — specifically `~/Dropbox/AIVault/Guru Wikis/`. That folder contains pre-vetted credibility wikis (track records, book lists, media appearances, legal flags) for the editors who appear most often in Agora promos.
 
-| Variable | Purpose | Default |
-|---|---|---|
-| `CONFIRM_WIKI_DIR` | Folder containing per-editor credibility `.docx` wikis. When set, the skill uses these as the **first** source for editor bio facts — the gold standard for accuracy. | unset (skips Tier 1, falls through to promo + web) |
-| `CONFIRM_EXAMPLES_DIR` | Folder containing reference confirm letters. When set, the skill reads one before drafting to calibrate voice. | unset |
-| `CONFIRM_OUTPUT_DIR` | Where the finished `.docx` is saved. | `~/Desktop` |
+If that folder exists on your Mac, the skill picks it up automatically — no configuration, no env vars, no setup. Just install and go.
 
-Set them in your shell (`~/.zshrc` or `~/.bash_profile`):
+If the folder doesn't exist (because you're not part of the Agora network, or you haven't accepted the Dropbox share invite), the skill silently falls through to reading editor credibility straight from the promo you provide it, plus web search. It still works — it's just not *as* sharp.
 
-```bash
-export CONFIRM_WIKI_DIR="$HOME/Dropbox/Credibility Wikis"
-export CONFIRM_EXAMPLES_DIR="$HOME/Dropbox/Confirm Letter Examples"
-export CONFIRM_OUTPUT_DIR="$HOME/Desktop"
-```
-
-### Credibility Wiki format
-
-If you're using `CONFIRM_WIKI_DIR`, each editor should have a top-level `.docx` file named something like:
-
-```
-Jane Smith - Credibility Wiki.docx
-```
-
-Each wiki should contain sections like Executive Summary, Career History, Books, Material Predictions / Track Record, Media Appearances. The skill reads top-level `.docx` files only and ignores any `[Lastname] Bio Claims` subfolders.
-
-You can build these wikis however you like — the skill only cares about the structure.
+To get access to the Dropbox folder, email **jschriefer@gmail.com**.
 
 ## Requirements
 
